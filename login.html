@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Cadê o Ecoponto</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: black;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header style="background-color: black; color: white;">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+                        <li class="nav-item"><a class="nav-link" href="a_importancia_do_descarte_correto.html">A importância do descarte correto</a></li>
+                        <li class="nav-item"><a class="nav-link" href="tipos_de_Residuos_aceitos_no_Ecoponto.html">Tipos de Resíduos aceitos no Ecoponto</a></li>
+                        <li class="nav-item"><a class="nav-link" href="Endereco_dos_Ecopontos.html">Endereço dos Ecopontos</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="main-content">
+        <div class="container">
+            <div class="row justify-content-center mt-5">
+                <div class="col-md-4">
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="inputEmail">E-mail</label>
+                            <input type="email" class="form-control" id="inputEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputSenha">Senha</label>
+                            <input type="password" class="form-control" id="inputSenha" required>
+                        </div>
+                        <button type="submit" id="btnLogin"  class="btn btn-primary btn-block">Login</button>
+                        <p id="successMessage" class="text-center mt-3"></p>
+                        <p id="loginErrorMessage" class="text-center text-danger"></p>
+                        <p class="text-center mt-3">Não é cadastrado? <a href="cadastro.html">Cadastre-se</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        &copy; 2024 Cadê o Ecoponto. Todos os direitos reservados.<br>(v 2.0)
+    </footer>
+    <!-- Bootstrap JS e Custom JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
