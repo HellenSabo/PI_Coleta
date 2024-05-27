@@ -1,37 +1,23 @@
 $(document).ready(function() {
-    $('#searchForm').submit(function(event) {
+    $('#loginForm').submit(function(event) {
         event.preventDefault();
-        
-        const cep = $('#cepInput').val();
-        const url = `https://nominatim.openstreetmap.org/search?format=json&postalcode=${cep}&countrycodes=BR`;
-        
+        const email = $('#email').val();
+        const password = $('#password').val();
         $.ajax({
-            type: 'GET',
-            url: url
-        }).done(function(data) {
-            if (data.length > 0) {
-                const lat = data[0].lat;
-                const lon = data[0].lon;
-                const name = data[0].display_name;
-                
-                $('#ecopontoList').html(`<li class="list-group-item"><strong>${name}</strong><br>Latitude: ${lat}<br>Longitude: ${lon}</li>`);
-                
-                var mymap = L.map('map').setView([lat, lon], 13);
-                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                    maxZoom: 19,
-                }).addTo(mymap);
-                
-                L.marker([lat, lon]).addTo(mymap)
-                    .bindPopup(name)
-                    .openPopup();
-                    
-                $('.results').show();
-            } else {
-                alert('Endereço não encontrado para o CEP fornecido.');
+            type: 'POST',
+            url: 'validar_login.php',
+            data: {email: email, senha: password},
+            success: function(response) {
+                $('#loginMessage').text(response);
+                if (response === 'Usuário logado com sucesso!') {
+                    setTimeout(function() {
+                        window.location.href = 'index.html';
+                    }, 2000);
+                }
+            },
+            error: function() {
+                $('#loginMessage').text('Erro ao fazer login. Por favor, tente novamente.');
             }
-        }).fail(function(xhr, status, error) {
-            console.error('Erro ao buscar Ecopontos:', error);
-            alert('Erro ao buscar Ecopontos. Por favor, tente novamente.');
         });
     });
 });
